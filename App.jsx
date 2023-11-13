@@ -1,16 +1,17 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import AppBar from './src/components/AppBar';
+import { StyleSheet, View } from 'react-native';
 import { NativeBaseProvider } from 'native-base';
+
+import AppBar from './src/components/AppBar';
+import HomePage from './src/pages/HomePage';
 
 export default function App() {
   return (
     <NativeBaseProvider>
       <AppBar />
       <View style={styles.container}>
-        <Text>Open up App.js to start working on your app! ega</Text>
-        <StatusBar style="auto" />
+        <HomePage />
       </View>
+      <a style={{ margin: 10 }} />
     </NativeBaseProvider>
   );
 }
@@ -18,7 +19,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#FEFEE2',
     alignItems: 'center',
     justifyContent: 'center',
   },
