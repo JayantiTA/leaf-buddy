@@ -1,7 +1,7 @@
 import { TouchableOpacity } from 'react-native';
 import { Image, Box, Text } from 'native-base';
 
-export default function DetectionResultPage() {
+export default function DetectionResultScreen() {
     return (
     <>
         <Text marginX={5} textAlign="center" maxWidth={350} fontSize={14}>
