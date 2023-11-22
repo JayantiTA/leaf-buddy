@@ -1,20 +1,31 @@
 import React from "react";
-import { TouchableOpacity } from "react-native";
+import { Linking, TouchableOpacity, View } from "react-native";
 import { Image, Box, Text } from "native-base";
+import PropTypes from "prop-types";
 
-export default function DetectionResultScreen() {
+import useStore from "../store/store";
+import styles from "../styles/style";
+
+export default function DetectionResultScreen({ navigation }) {
+  const { selectedImage, detectionResult, confidence, plantName } = useStore();
+
+  const redirectToBrowser = () => {
+    const googleSearchUrl = `https://www.google.com/search?q=${plantName}+${detectionResult}`;
+    Linking.openURL(googleSearchUrl).catch((err) => console.error("Error opening URL:", err));
+  };
+
   return (
-    <>
+    <View style={styles.container}>
       <Text marginX={5} textAlign="center" maxWidth={350} fontSize={14}>
-            Detection Result:
+        Detection Result:
       </Text>
       <Text marginX={5} textAlign="center" color="#4B784A" fontWeight="bold" maxWidth={350} fontSize={16}>
-            Normal (100%)
+        { detectionResult } { Number(confidence * 100).toFixed(2) }%
       </Text>
       <Box margin={5} bg="#FEFEE2" borderRadius={8}>
         <Image
           source={{
-            uri: "https://www.bhg.com/thmb/EhLsmA6ULBkva4_GUpBTHhnd4Bc=/1024x0/filters:no_upscale():strip_icc()/Tomato-late-blight-72605cba08f2483aae0fd8f1dc3532a9.jpg",
+            uri: selectedImage,
           }}
           alt="Alternate Text"
           size="2xl"
@@ -22,6 +33,7 @@ export default function DetectionResultScreen() {
         />
       </Box>
       <TouchableOpacity
+        onPress={redirectToBrowser}
         style={{
           backgroundColor: "#4B784A",
           padding: 10,
@@ -31,9 +43,10 @@ export default function DetectionResultScreen() {
           alignItems: "center",
         }}
       >
-        <Text color="white" fontSize={13} fontWeight="semibold">Search on web browser</Text>
+        <Text color="white" fontSize="md" fontWeight="semibold">Search on web browser</Text>
       </TouchableOpacity>
       <TouchableOpacity
+        onPress={() => navigation.navigate("Home")}
         style={{
           backgroundColor: "#8E8D94",
           padding: 10,
@@ -43,8 +56,14 @@ export default function DetectionResultScreen() {
           alignItems: "center",
         }}
       >
-        <Text color="white" fontSize={13} fontWeight="semibold">Back to home</Text>
+        <Text color="white" fontSize="md" fontWeight="semibold">Back to home</Text>
       </TouchableOpacity>
-    </>
+    </View>
   );
 }
+
+DetectionResultScreen.propTypes = {
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func.isRequired,
+  }).isRequired,
+};

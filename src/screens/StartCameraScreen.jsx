@@ -38,15 +38,15 @@ export default function StartCameraScreen({ navigation }) {
   return (
     <View style={styles.container}>
       <Text marginX={5} textAlign="center" maxWidth={350} margin={3} fontSize={14}>
-            Make sure the
+        Make sure the
         {" "}
         <Text fontWeight='bold' color='#4B784A'>problem</Text>
         {" "}
-            of the
+        of the
         {" "}
         <Text fontWeight='bold' color='#4B784A'>plant&apos;s leaves</Text>
         {" "}
-            is clearly visible (eg: spots, color differences, etc.)
+        is clearly visible (eg: spots, color differences, etc.)
       </Text>
       <Box margin={5} bg="#FEFEE2" borderRadius={8}>
         <View>
