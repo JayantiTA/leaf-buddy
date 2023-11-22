@@ -1,16 +1,15 @@
-import { StyleSheet, View } from 'react-native';
-import { Box, NativeBaseProvider } from 'native-base';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import React from "react";
+import { NativeBaseProvider } from "native-base";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
 
-import AppBar from './src/components/AppBar';
-import DetectionResultScreen from './src/screens/DetectionResultScreen';
-import HomeScreen from './src/screens/HomeScreen';
-import StartCameraScreen from './src/screens/StartCameraScreen';
-import SelectedImageScreen from './src/screens/SelectedImageScreen';
-import styles from './src/styles/style';
+import AppBar from "./src/components/AppBar";
+import DetectionResultScreen from "./src/screens/DetectionResultScreen";
+import HomeScreen from "./src/screens/HomeScreen";
+import StartCameraScreen from "./src/screens/StartCameraScreen";
+import SelectedImageScreen from "./src/screens/SelectedImageScreen";
 
-const Stack = createStackNavigator()
+const Stack = createStackNavigator();
 
 export default function App() {
   return (
@@ -20,7 +19,7 @@ export default function App() {
           initialRouteName="Home"
           screenOptions={{ 
             header: () => <AppBar />, 
-           }}
+          }}
         >
           <Stack.Screen name="Home" component={HomeScreen} />
           <Stack.Screen name="StartCamera" component={StartCameraScreen} />
