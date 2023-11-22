@@ -2,7 +2,7 @@ import React from "react";
 import { StatusBar, Icon, Box, IconButton, Text, HStack } from "native-base";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 
-function AppBar() {
+export default function AppBar() {
   return <>
     <StatusBar bg="#3700B3" barStyle="light-content" />
     <Box safeAreaTop />
@@ -16,5 +16,3 @@ function AppBar() {
     </HStack>
   </>;
 }
-
-export default AppBar;

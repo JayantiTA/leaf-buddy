@@ -1,23 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import { TouchableOpacity, View } from "react-native";
-import { Image, Box, Text, Icon, Select } from "native-base";
+import { Image, Box, Text, Icon, Select, useToast } from "native-base";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import PropTypes from "prop-types";
 import { API_URL } from "@env";
 
 import useStore from "../store/store";
 import styles from "../styles/style";
+import ToastAlert from "../components/ToastAlert";
 
 export default function SelectedImageScreen({ navigation }) {
-  const { selectedImage, setDetectionResult, setConfidence, plantName, setPlantName } = useStore();
-  
+  const { selectedImage, imageBase64, setDetectionResult, setConfidence, plantName, setPlantName } = useStore();
+  const [showToast, setShowToast] = useState(false);
+  const [title, setTitle] = useState("");
+  const toast = useToast();
+
   const predict = () => {
+    if (plantName === "") {
+      showErrorToast("Plant's name is required!");
+      return;
+    }
     fetch(`${API_URL}/classify`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ image: selectedImage, plant: plantName }),
+      body: JSON.stringify({ image: imageBase64, plant: plantName }),
     })
       .then(response => response.json())
       .then(data => {
@@ -25,7 +33,26 @@ export default function SelectedImageScreen({ navigation }) {
         setConfidence(data.confidence);
         navigation.navigate("DetectionResult");
       })
-      .catch(error => console.error("Error:", error));
+      .catch(error => {
+        console.error("Error:", error);
+        showErrorToast("Server Error!");
+        return;
+      });
+  };
+
+  const showErrorToast = (title) => {
+    setTitle(title);
+    setShowToast(true);
+    setTimeout(() => {
+      setShowToast(false);
+      setTitle("");
+    }, 3000);
+  }; 
+
+  const hideToast = () => {
+    toast.closeAll();
+    setShowToast(false);
+    setTitle("");
   };
 
   const handleValueChange = (value) => {
@@ -34,6 +61,7 @@ export default function SelectedImageScreen({ navigation }) {
 
   return (
     <View style={styles.container}>
+      {showToast ? <ToastAlert title={title} hideToast={hideToast} /> : null}
       <Text marginX={5} textAlign="center" maxWidth={350} margin={3} fontSize={14}>
         Make sure the
         {" "}
