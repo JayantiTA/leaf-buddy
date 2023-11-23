@@ -3,7 +3,6 @@ import { TouchableOpacity, View } from "react-native";
 import { Image, Box, Text, Icon, Select, useToast } from "native-base";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import PropTypes from "prop-types";
-import { API_URL } from "@env";
 
 import useStore from "../store/store";
 import styles from "../styles/style";
@@ -20,7 +19,7 @@ export default function SelectedImageScreen({ navigation }) {
       showErrorToast("Plant's name is required!");
       return;
     }
-    fetch(`${API_URL}/classify`, {
+    fetch("https://jayantita.pythonanywhere.com/classify", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
