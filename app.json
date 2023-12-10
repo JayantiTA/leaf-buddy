@@ -21,7 +21,11 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/logo-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "permissions": [
+        "android.permission.RECORD_AUDIO"
+      ],
+      "package": "com.jayantita.leafbuddy"
     },
     "web": {
       "favicon": "./assets/logo-color.png"
@@ -34,6 +38,14 @@
         }
       ],
       "expo-router"
-    ]
+    ],
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "39493342-55a0-451a-ace1-7778c6861ab6"
+      }
+    }
   }
 }
