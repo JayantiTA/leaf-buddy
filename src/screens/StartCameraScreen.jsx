@@ -28,16 +28,20 @@ export default function StartCameraScreen({ navigation }) {
   };
 
   if (hasPermission === null) {
-    return <View />;
+    return <View style={styles.container}/>;
   }
 
   if (hasPermission === false) {
-    return <Text>No access to camera</Text>;
+    return (
+      <View style={styles.container}>
+        <Text>No access to camera</Text>
+      </View>
+    );
   }
 
   return (
     <View style={styles.container}>
-      <Text marginX={5} textAlign="center" maxWidth={350} margin={3} fontSize={14}>
+      <Text marginX={5} textAlign="center" maxWidth="90%" margin={3} fontSize={14}>
         Make sure the
         {" "}
         <Text fontWeight='bold' color='#4B784A'>problem</Text>
@@ -65,19 +69,6 @@ export default function StartCameraScreen({ navigation }) {
           </Camera>
         </View>
       </Box>
-      <TouchableOpacity
-        onPress={() => navigation.navigate("Home")}
-        style={{
-          backgroundColor: "#8E8D94",
-          padding: 10,
-          borderRadius: 8,
-          margin: 5,
-          minWidth: 300,
-          alignItems: "center",
-        }}
-      >
-        <Text color="white" fontSize="md" fontWeight="semibold">Back to home</Text>
-      </TouchableOpacity>
     </View>
   );
 }

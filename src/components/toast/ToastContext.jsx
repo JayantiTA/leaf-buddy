@@ -1,11 +1,10 @@
-// ToastContext.js
 import React, { createContext, useContext, useState } from "react";
 
 const ToastContext = createContext();
 
 const ToastProvider = ({ children }) => {
-  const [toastVisible, setToastVisible] = useState(false);
-  const [toastTitle, setToastTitle] = useState("");
+  const [, setToastVisible] = useState(false);
+  const [, setToastTitle] = useState("");
 
   const showToast = (title) => {
     setToastTitle(title);

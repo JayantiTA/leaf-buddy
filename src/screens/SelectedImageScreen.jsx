@@ -61,7 +61,7 @@ export default function SelectedImageScreen({ navigation }) {
   return (
     <View style={styles.container}>
       {showToast ? <ToastAlert title={title} hideToast={hideToast} /> : null}
-      <Text marginX={5} textAlign="center" maxWidth={350} margin={3} fontSize={14}>
+      <Text marginX={5} textAlign="center" maxWidth="90%" margin={3} fontSize={14}>
         Make sure the
         {" "}
         <Text fontWeight='bold' color='#4B784A'>problem</Text>
@@ -82,7 +82,7 @@ export default function SelectedImageScreen({ navigation }) {
           resizeMode="cover"
         />
       </Box>
-      <Select margin={3} minWidth="200" accessibilityLabel="Choose Plant" placeholder="Choose Plant" fontSize="md" _selectedItem={{
+      <Select margin={3} alignItems="center" accessibilityLabel="Choose Plant" placeholder="Choose Plant" fontSize="md" _selectedItem={{
         bg: "teal.600",
         endIcon: <Icon size={5} as={<MaterialIcons name="check" />}
         />,
@@ -98,24 +98,11 @@ export default function SelectedImageScreen({ navigation }) {
           padding: 10,
           borderRadius: 8,
           margin: 5,
-          minWidth: 300,
+          width: "80%",
           alignItems: "center",
         }}
       >
         <Text color="white" fontSize="md" fontWeight="semibold">Confirm</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        onPress={() => navigation.navigate("Home")}
-        style={{
-          backgroundColor: "#8E8D94",
-          padding: 10,
-          borderRadius: 8,
-          margin: 5,
-          minWidth: 300,
-          alignItems: "center",
-        }}
-      >
-        <Text color="white" fontSize="md" fontWeight="semibold">Back to home</Text>
       </TouchableOpacity>
     </View>
   );

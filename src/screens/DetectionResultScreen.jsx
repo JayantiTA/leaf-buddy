@@ -16,10 +16,10 @@ export default function DetectionResultScreen({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <Text marginX={5} textAlign="center" maxWidth={350} fontSize={14}>
+      <Text marginX={5} textAlign="center" maxWidth="90%" fontSize={14}>
         Detection Result:
       </Text>
-      <Text marginX={5} textAlign="center" color="#4B784A" fontWeight="bold" maxWidth={350} fontSize={16}>
+      <Text marginX={5} textAlign="center" color="#4B784A" fontWeight="bold" maxWidth="90%" fontSize={16}>
         { detectionResult } { Number(confidence * 100).toFixed(2) }%
       </Text>
       <Box margin={5} bg="#FEFEE2" borderRadius={8}>
@@ -39,7 +39,7 @@ export default function DetectionResultScreen({ navigation }) {
           padding: 10,
           borderRadius: 8,
           margin: 5,
-          minWidth: 300,
+          width: "80%",
           alignItems: "center",
         }}
       >
@@ -52,7 +52,7 @@ export default function DetectionResultScreen({ navigation }) {
           padding: 10,
           borderRadius: 8,
           margin: 5,
-          minWidth: 300,
+          width: "80%",
           alignItems: "center",
         }}
       >

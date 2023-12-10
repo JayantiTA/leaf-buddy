@@ -43,7 +43,7 @@ export default function HomeScreen({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <Box bg="#9C953D" rounded="full" paddingX="5" paddingY="1.5">
+      <Box bg="#9C953D" rounded="full" paddingX="5" paddingY="1.5" margin="3">
         <Text color="white" fontSize="lg">Start checking your leaves!</Text>
       </Box>
       {assets ?
@@ -57,13 +57,13 @@ export default function HomeScreen({ navigation }) {
           padding: 10,
           borderRadius: 8,
           margin: 7,
-          width: 300,
+          width: "80%",
           flexDirection: "row",
           justifyContent: "space-between",
           alignItems: "center",
         }}
       >
-        <Text color="white" fontSize="xl" marginLeft={5}>Take a picture</Text>
+        <Text color="white" fontSize="lg" marginLeft={5}>Take a picture</Text>
         <Icon as={MaterialIcons} name="camera-alt" size="lg" color="white" marginRight={5} />
       </TouchableOpacity>
       <TouchableOpacity
@@ -73,13 +73,13 @@ export default function HomeScreen({ navigation }) {
           padding: 10,
           borderRadius: 8,
           margin: 7,
-          width: 300,
+          width: "80%",
           flexDirection: "row",
           justifyContent: "space-between",
           alignItems: "center",
         }}
       >
-        <Text color="white" fontSize="xl" marginLeft={5}>Pick from gallery</Text>
+        <Text color="white" fontSize="lg" marginLeft={5}>Pick from gallery</Text>
         <Icon as={MaterialIcons} name="photo-library" size="lg" color="white" marginRight={5} />
       </TouchableOpacity>
     </View>
