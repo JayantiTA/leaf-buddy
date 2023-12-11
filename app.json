@@ -4,11 +4,11 @@
     "slug": "leaf-buddy",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/logo-color.png",
+    "icon": "./assets/logo-icon.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash-logo.png",
-      "resizeMode": "500x500",
+      "image": "./assets/logo-splash.png",
+      "resizeMode": "contain",
       "backgroundColor": "#7FC37E"
     },
     "assetBundlePatterns": [
@@ -19,8 +19,8 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/logo-color.png",
-        "backgroundColor": "#ffffff"
+        "foregroundImage": "./assets/logo-icon.png",
+        "backgroundColor": "#7FC37E"
       },
       "permissions": [
         "android.permission.RECORD_AUDIO"
@@ -28,7 +28,7 @@
       "package": "com.jayantita.leafbuddy"
     },
     "web": {
-      "favicon": "./assets/logo-color.png"
+      "favicon": "./assets/logo-icon.png"
     },
     "plugins": [
       [
