@@ -3,6 +3,7 @@ import { TouchableOpacity, View } from "react-native";
 import { Image, Box, Text, Icon, Select, useToast } from "native-base";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import PropTypes from "prop-types";
+import axios from "axios";
 
 import useStore from "../store/store";
 import styles from "../styles/style";
@@ -14,29 +15,29 @@ export default function SelectedImageScreen({ navigation }) {
   const [title, setTitle] = useState("");
   const toast = useToast();
 
-  const predict = () => {
+  const predict = async () => {
     if (plantName === "") {
       showErrorToast("Plant's name is required!");
       return;
     }
-    fetch("https://jayantita.pythonanywhere.com/classify", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ image: imageBase64, plant: plantName }),
-    })
-      .then(response => response.json())
-      .then(data => {
-        setDetectionResult(data.class_name);
-        setConfidence(data.confidence);
-        navigation.navigate("DetectionResult");
-      })
-      .catch(error => {
-        console.error("Error:", error);
-        showErrorToast("Server Error!");
-        return;
+
+    try {
+      const response = await axios.post("https://jayantita.pythonanywhere.com/classify", {
+        image: imageBase64,
+        plant: plantName,
+      }, {
+        headers: {
+          "Content-Type": "application/json",
+        },
       });
+      const { data }  = response;
+      setDetectionResult(data.class_name);
+      setConfidence(data.confidence);
+      navigation.navigate("DetectionResult");
+    } catch (error) {
+      console.error(error);
+      showErrorToast(error.message);
+    }
   };
 
   const showErrorToast = (title) => {
