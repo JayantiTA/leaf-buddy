@@ -82,7 +82,7 @@ export default function SelectedImageScreen({ navigation }) {
           resizeMode="cover"
         />
       </Box>
-      <Select margin={3} alignItems="center" accessibilityLabel="Choose Plant" placeholder="Choose Plant" fontSize="md" _selectedItem={{
+      <Select margin={3} width="80%" alignItems="center" accessibilityLabel="Choose Plant" placeholder="Choose Plant" fontSize="md" _selectedItem={{
         bg: "teal.600",
         endIcon: <Icon size={5} as={<MaterialIcons name="check" />}
         />,

@@ -4,11 +4,11 @@
     "slug": "leaf-buddy",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/logo-icon.png",
+    "icon": "./assets/logo-color.png",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/splash-logo.png",
-      "resizeMode": "contain",
+      "resizeMode": "500x500",
       "backgroundColor": "#7FC37E"
     },
     "assetBundlePatterns": [
@@ -19,7 +19,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/logo-icon.png",
+        "foregroundImage": "./assets/logo-color.png",
         "backgroundColor": "#ffffff"
       },
       "permissions": [
