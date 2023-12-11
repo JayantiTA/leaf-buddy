@@ -52,32 +52,14 @@ export default function HomeScreen({ navigation }) {
       }
       <TouchableOpacity
         onPress={() => navigation.navigate("StartCamera")}
-        style={{
-          backgroundColor: "#4B784A",
-          padding: 10,
-          borderRadius: 8,
-          margin: 7,
-          width: "80%",
-          flexDirection: "row",
-          justifyContent: "space-between",
-          alignItems: "center",
-        }}
+        style={[styles.button, styles.homeScreenButton]}
       >
         <Text color="white" fontSize="lg" marginLeft={5}>Take a picture</Text>
         <Icon as={MaterialIcons} name="camera-alt" size="lg" color="white" marginRight={5} />
       </TouchableOpacity>
       <TouchableOpacity
         onPress={pickImage}
-        style={{
-          backgroundColor: "#4B784A",
-          padding: 10,
-          borderRadius: 8,
-          margin: 7,
-          width: "80%",
-          flexDirection: "row",
-          justifyContent: "space-between",
-          alignItems: "center",
-        }}
+        style={[styles.button, styles.homeScreenButton]}
       >
         <Text color="white" fontSize="lg" marginLeft={5}>Pick from gallery</Text>
         <Icon as={MaterialIcons} name="photo-library" size="lg" color="white" marginRight={5} />

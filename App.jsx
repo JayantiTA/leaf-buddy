@@ -18,7 +18,7 @@ export default function App() {
         <Stack.Navigator
           initialRouteName="Home"
           screenOptions={{ 
-            header: props => <AppBar navigation={props.navigation} />, 
+            header: props => <AppBar navigation={props.navigation}/>, 
           }}
         >
           <Stack.Screen name="Home" component={HomeScreen} />

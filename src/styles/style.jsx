@@ -9,8 +9,8 @@ const styles = StyleSheet.create({
     paddingBottom: 20,
   },
   cameraContainer: {
-    width: 450,
-    height: 450,
+    minWidth: 450,
+    minHeight: 450,
     backgroundColor: "transparent",
     flexDirection: "row",
     justifyContent: "center",
@@ -19,14 +19,36 @@ const styles = StyleSheet.create({
   captureButton: {
     marginBottom: 20,
     padding: 15,
+    minWidth: 50,
+    minHeight: 50,
     backgroundColor: "white",
-    borderRadius: 20,
+    borderRadius: 30,
     borderWidth: 5,
     borderColor: "#4B784A",
   },
   captureButtonText: {
     fontSize: 18,
     color: "black",
+  },
+  button: {
+    padding: 10,
+    borderRadius: 8,
+    width: "80%",
+    alignItems: "center",
+  },
+  greenButton: {
+    margin: 5,
+    backgroundColor: "#4B784A",
+  },
+  grayButton: {
+    margin: 5,
+    backgroundColor: "#8E8D94",
+  },
+  homeScreenButton: {
+    backgroundColor: "#4B784A",
+    margin: 7,
+    flexDirection: "row",
+    justifyContent: "space-between",
   },
   modalView: {
     margin: 10,
